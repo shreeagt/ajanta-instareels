@@ -9,8 +9,13 @@
     <title>Signin Template · Bootstrap v5.1</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
-    <link href="{!! url('assets/css/signin.css') !!}" rel="stylesheet">
+     <!-- Bootstrap Css -->
+     <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" />
+     <!-- Icons Css -->
+     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" />
+     <!-- App Css-->
+     <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" />
+ 
     
     <style>
       .bd-placeholder-img {
