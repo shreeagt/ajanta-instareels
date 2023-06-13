@@ -9,7 +9,6 @@ class MappingUser extends Model
 {
     use HasFactory;
     protected $table = 'mapping_user';
-
     protected $fillable = [
         'mapping_user_id',
         'user_id',        

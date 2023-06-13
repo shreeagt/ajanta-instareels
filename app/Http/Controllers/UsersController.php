@@ -19,18 +19,21 @@ class UsersController extends Controller
      */
     public function index() 
     {  
-        if (Auth::user()->hasRole('admin') ) {
-            $users = User::whereHas('roles', function($role) {
-                $role->where('name', '=', "so");
-            })->paginate(10);
-        } elseif (Auth::user()->hasRole('so')) {
-            $users = User::whereHas('roles', function($role) {
-                $role->where('name', '=', "doctor");
-            })->paginate(10);
-        }
-       
-       
         
+        if (Auth::user()->hasRole('admin') ) {
+            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
+            ->whereHas('roles', function($role) {
+                $role->where('name', '=', "so");
+            })
+            ->where("mapping_user.mapping_user_id","=",Auth::user()->id)
+            ->paginate(10);
+        } elseif (Auth::user()->hasRole('so')) {
+            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
+            ->whereHas('roles', function($role) {
+                $role->where('name', '=', "doctor");
+            })->where("mapping_user.mapping_user_id","=",Auth::user()->id)
+            ->paginate(10);
+        }
         return view('users.index', compact('users'));
     }
 
@@ -162,7 +165,6 @@ class UsersController extends Controller
     public function destroy(User $user) 
     {
         $user->delete();
-
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
     }
