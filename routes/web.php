@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/dashboard', function() {
+//     return view('dashboard');
+// });
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /**
@@ -56,6 +60,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+
         });
 
        
@@ -67,6 +72,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
        
     });
+
+    // Route::group(['middleware' => ['auth', 'role:so']], function () {
+    //     Route::get('/doctors/create', 'DoctorsController@create')->name('doctors.create');
+    //     Route::post('/doctors/create', 'DoctorsController@insertdoctors')->name('doctors.insert');
+    // });
 
     Route::get('/videocreate', 'VideoController@create')->name('videocreate');
     Route::post('/videsave', 'VideoController@store')->name('videosave');
