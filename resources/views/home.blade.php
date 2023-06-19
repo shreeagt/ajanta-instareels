@@ -54,7 +54,7 @@
             </div>
          </div>
       </div>
-      {{-- <div class="timeline-cover pt-4">
+      <div class="timeline-cover pt-4">
          <div class="text-center">
             <img src="{{asset('assets/images/ajanta-logo.png')}}" alt="logo" class="logo">
             <h1>ENHANCE YOUR DIGITAL PRESENCE<br>WITH<br>AJANTA PHARMA LIMITED!</h1>
@@ -145,7 +145,7 @@
                </div>
             </div>
          </div>
-      </div> --}}
+      </div>
       <script>
          document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
            const dropZoneElement = inputElement.closest(".drop-zone");
