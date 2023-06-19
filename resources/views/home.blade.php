@@ -114,7 +114,7 @@
     margin-left: 30%;
     padding: 20px;
     background-color: #f2f2f2;
-    border-radius: 4px;
+    border-radius: 20px;
   }
 
   /* Timeline content: alternate side */
@@ -288,7 +288,7 @@
        <img src="{{asset('assets/images/home/2.png')}}" alt="Image 1">
      </div>
      <div class="timeline__content">
-       <h3>1.Amplify Your<br>
+       <h3>1.Amplify Your
          Online Influence</h3>
        <p>Our Social Media Manager will skyrocket
          your online presence, positioning you as
@@ -300,7 +300,7 @@
        <img src="{{asset('assets/images/home/3.png')}}" alt="Image 2">
      </div>
      <div class="timeline__content">
-       <h3>2.Expand Your<br>
+       <h3>2.Expand Your
          Patient Network</h3>
        <p>Tap into a vast pool of potential patients through
          targeted social media strategies, allowing you to
@@ -312,7 +312,7 @@
        <img src="{{asset('assets/images/home/4.png')}}" alt="Image 3">
      </div>
      <div class="timeline__content">
-       <h3>3.Engage and<br>
+       <h3>3.Engage and
          Educate</h3>
        <p>Our expert will captivate your audience with
          compelling content, delivering valuable eye care
@@ -324,7 +324,7 @@
        <img src="{{asset('assets/images/home/5.png')}}" alt="Image 4">
      </div>
      <div class="timeline__content">
-       <h3>4.Time-Efficient<br>
+       <h3>4.Time-Efficient
          Solution</h3>
        <p>Let our Social Media Manager handle the complexities
          of social media, freeing up your valuable time to focus
@@ -336,7 +336,7 @@
        <img src="{{asset('assets/images/home/6.png')}}" alt="Image 5">
      </div>
      <div class="timeline__content">
-       <h3>5.Ignite Patient<br>
+       <h3>5.Ignite Patient
          Loyalty</h3>
        <p>Let our Social Media Manager handle the complexities
          of social media, freeing up your valuable time to focus
@@ -348,7 +348,7 @@
        <img src="{{asset('assets/images/home/7.png')}}" alt="Image 6">
      </div>
      <div class="timeline__content">
-       <h3>6.Stay Ahead of<br>
+       <h3>6.Stay Ahead of
          Competitors</h3>
        <p>With our cutting-edge social media strategies, you'll outshine
          your competition, staying at the forefront of the ever-evolving
