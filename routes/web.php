@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DoctorsController;
+use App\Http\Controllers\DummyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/dashboard', function() {
 //     return view('dashboard');
 // });
+
+Route::get('/hello', 'App\Http\Controllers\DummyController@dummy')->name('dummy');
+Route::post('/hello', 'App\Http\Controllers\DummyController@insert')->name('dummy.insert');
+Route::get('/ello', 'App\Http\Controllers\DummyController@show')->name('dummy.show');
+Route::get('/edithello', 'App\Http\Controllers\DummyController@edit')->name('dummy.edit');
+
+
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
@@ -66,19 +75,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
        
         Route::get('/videoList', 'VideoController@index')->name('videoList');
         
-        
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
 
        
     });
 
-    // Route::group(['middleware' => ['auth', 'role:so']], function () {
-    //     Route::get('/doctors/create', 'DoctorsController@create')->name('doctors.create');
-    //     Route::post('/doctors/create', 'DoctorsController@insertdoctors')->name('doctors.insert');
-    // });
+    Route::group(['middleware' => ['auth', 'role:so']], function () {
+        Route::get('/doctors/create', 'DoctorsController@create')->name('doctors.create');
+        Route::post('/doctors/create', 'DoctorsController@insertdoctors')->name('doctors.insert');
+        Route::get('/doctors/show', 'DoctorsController@showdoctors')->name('doctors.show');
+        Route::delete('/doctors/{doctor}', 'DoctorsController@destroy')->name('doctors.destroy');
+        Route::get('/doctors/{doctor}/edit', [DoctorsController::class, 'edit'])->name('doctors.edit');
+        Route::put('/doctors/{doctor}', [DoctorsController::class, 'update'])->name('doctors.update');
+    });
 
     Route::get('/videocreate', 'VideoController@create')->name('videocreate');
-    Route::post('/videsave', 'VideoController@store')->name('videosave');
+    Route::post('/videsave', 'VideoController@store')->name('videosave');    
     Route::patch('/{video_id}/update', 'VideoController@update')->name('videoupdate');
 });

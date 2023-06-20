@@ -25,11 +25,11 @@
             <div class="sidebar_list_item">
               <a href="{{ route('videoList') }}" class="items-center"><i class="flaticon-cash-on-delivery mr15"></i>Video</a>
             </div>
-            <!-- <div class="sidebar_list_item">
-              <a href="{{ route('doctors.create') }}" class="items-center">
+            <div class="sidebar_list_item">
+              <a href="{{ route('doctors.show') }}" class="items-center">
                 <i class="flaticon-house mr15"></i>Add Doctors
               </a>
-            </div> -->
+            </div>
             @endrole
           
             

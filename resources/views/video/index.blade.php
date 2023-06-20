@@ -1,9 +1,6 @@
 @extends('layouts.app-master')
 
 @section('content')
-    
-   
-
     <div class="bg-light p-4 rounded">
         <h1>Video</h1>
         <div class="lead">
@@ -17,51 +14,35 @@
 
         <table class="table table-striped">
             <thead>
-            <tr>
-                <th >#</th>
-                <th >Name</th>
-                <th >Description</th>               
-                <th >Thubnil</th>
-                <th >Status</th>
-                @if(Auth::user()->hasRole('so'))
-                <th >Action</th>
-                @elseif(Auth::user()->hasRole('admin'))
-                    <th >Approve By</th>   
-                
-                @endif    
-            </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Last Name</th>               
+                    <th>Thumbnail</th>
+                    <th>Status</th>
+                    @if(Auth::user()->hasRole('so'))
+                        <th>Action</th>
+                    @elseif(Auth::user()->hasRole('admin'))
+                        <th>Approve By</th>   
+                    @endif    
+                </tr>
             </thead>
             <tbody>
                 @foreach($videos as $video)
                     <tr>
-                        <td >{{ $video->video_id }}</td>
-                        <td>{{ $video->video_name}}</td>
-                        <td>{{ $video->video_description }}</td>
-                        <td>{{ $video->video_path }}</td>
-                        <td>{{ $video->status }}</td>
-                        
-                        <td>
-                            @if(Auth::user()->hasRole('so'))
-                                @if($video->status=="Pending")
-                                    {!! Form::open(['method' => 'patch','route' => ['videoupdate', $video->video_id],'style'=>'display:inline']) !!}
-                                    {!! Form::select('status',['Approved' => 'Approved', 'Rejected' => 'Rejected'], null,  ['class' => 'form-control']) !!}
-                                    {!! Form::submit('Submit', ['class' => 'btn btn-info btn-sm']) !!}
-                                    {!! Form::close() !!}
-
-                                @endif 
-                            @elseif(Auth::user()->hasRole('admin'))
-                                {{ $video->approvebyuserfirstname." ".$video->approvebyuserlastname }}                   
-                            @endif  
-                        </td>
-                         
+                        <td>{{ $video->id }}</td>
+                        <td>{{ $video->firstname }}</td>
+                        <td>{{ $video->lastname }}</td>
+                        <td>{{ $video->email }}</td>
+                        <td>{{ $video->role }}</td>
+                        @if(Auth::user()->hasRole('so'))
+                            <td>Action</td>
+                        @elseif(Auth::user()->hasRole('admin'))
+                            <td>Approve By</td>   
+                        @endif    
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-        <div class="d-flex">
-            {!! $videos->links() !!}
-        </div>
-
     </div>
 @endsection
