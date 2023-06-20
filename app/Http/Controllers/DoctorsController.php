@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctors;
+use App\Models\VideoModel;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -62,4 +63,31 @@ class DoctorsController extends Controller
         // Redirect the user to the show page or any other appropriate page
         return redirect()->route('doctors.show', ['doctor' => $doctor->id]);
     }
+    public function link(Doctors $doctor)
+    {
+        return view ('home', ['doctor' => $doctor]);
+    }
+    // public function uploadvideo(Request $request)
+    // {
+    //     $uvideo = new VideoModel;
+        
+    //     if ($request->hasFile('video')) {
+    //         $uvideo = $request->file('video');
+    //         $customName = 'video_' . time() . '.' . $uvideo->getClientOriginalExtension();
+    //         $destinationPath = 'uploads/videos';
+    //         $uvideo->move($destinationPath, $customName);
+    
+    //         $video_insert = VideoModel::create([
+    //             "video_path" => $customName,
+    //             "created_by" => auth()->id(),
+    //             "created_at" => date("Y-m-d H:i:s")
+    //         ]);
+    
+    //         $request->session()->flash('success', 'Data inserted successfully.');
+    //     } else {
+    //         $request->session()->flash('error', 'No video file uploaded.');
+    //     }
+    
+    //     return redirect()->route('doctors.upload');
+    // }
 }

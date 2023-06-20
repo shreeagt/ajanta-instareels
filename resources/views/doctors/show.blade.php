@@ -28,7 +28,7 @@
                             <td>{{ $doctor->lastname }}</td>
                             <td>{{ $doctor->email }}</td>
                             <td>{{ $doctor->role }}</td>
-                            <td><a href="#" class="btn btn-success">Link</td>
+                            <td><a href="{{ route('doctors.link', ['doctor' => $doctor->id]) }}" class="btn btn-success">Link</td>
                             <td>
                                 <a href="{{ route('doctors.edit', ['doctor' => $doctor->id]) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('doctors.destroy', ['doctor' => $doctor->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $doctor->id }}').submit();">Delete</a>

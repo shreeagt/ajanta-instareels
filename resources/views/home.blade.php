@@ -40,8 +40,9 @@
                <div class="col-lg-6">
                   <div class="col-lg-12">
                      <div class="banner_text ">
-                        <h1> Hello  Dr.<span style="color:brown">Ravi Tiwari</span><br>Please Upload your video<span class="red" style="color:red">.</span> </h1>
-                        <form>
+                        <h1> Hello  Dr.<span style="color:brown">{{ $doctor->firstname }} {{ $doctor->lastname }}</span><br>Please Upload your video<span class="red" style="color:red">.</span> </h1>
+                        <form action="{{ route('doctors.upload') }}" method="post">
+                           @csrf
                            <div class="drop-zone">
                               <span class="drop-zone__prompt">Drop file here or click to upload</span>
                               <input type="file" name="myFile" class="drop-zone__input">
@@ -221,7 +222,7 @@
          
            const fileInput = document.querySelector('.drop-zone__input');
            const allowedExtensions = ['mp4', 'avi', 'mov']; // Allowed video file extensions
-           const maxSizeInBytes = 2 * 1024 * 1024; // 2MB
+           const maxSizeInBytes = 5 * 1024 * 1024; // 2MB
          
            const file = fileInput.files[0];
          

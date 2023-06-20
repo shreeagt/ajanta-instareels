@@ -62,6 +62,8 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+       
+    
         $video = $request->file('video');
         // Generate a custom name for the video
         $customName = 'video_' . time() . '.' . $video->getClientOriginalExtension();
@@ -71,7 +73,6 @@ class VideoController extends Controller
         $video->move($destinationPath, $customName);
     
         $video_insert = VideoModel::create([
-            "video_description" => $request->input("video_description"),
             "video_path" => $customName,
             "created_by" => auth()->id(),
             "created_at" => date("Y-m-d H:i:s")
