@@ -1,5 +1,43 @@
 @extends('layouts.auth-master')
 
+<style>
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body.text-center {
+    background: #71bbd9;
+}
+
+    main.form-signin {
+    min-width: 500px;
+    align-items: center;
+    background: rgba(255,255,255,0.3);
+    padding: 20px;
+    border-radius:20px;
+    /* background: #71bbd9; */
+}
+
+
+
+
+@media screen and (max-width: 540px) {   
+     main.form-signin {
+    min-width: 300px;
+}
+}
+
+@media screen and (max-width: 300px) {   
+     main.form-signin {
+    min-width: 250px;
+}
+}
+
+</style>
 @section('content')
     <form method="post" action="{{ route('login.perform') }}">
         
