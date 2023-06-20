@@ -86,8 +86,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/doctors/create', 'DoctorsController@insertdoctors')->name('doctors.insert');
         Route::get('/doctors/show', 'DoctorsController@showdoctors')->name('doctors.show');
         Route::get('/doctors/home/{doctor}', 'DoctorsController@link')->name('doctors.link');
-        // Route::get('/doctors/upload', 'DoctorsController@uploadvideo')->name('doctors.upload');
-        // Route::post('/doctors/upload', 'DoctorsController@uploadvideo')->name('doctors.upload');
+        Route::post('/doctors/upload', 'DoctorsController@uploadvideo')->name('doctors.upload');
         Route::delete('/doctors/{doctor}', 'DoctorsController@destroy')->name('doctors.destroy');
         Route::get('/doctors/{doctor}/edit', [DoctorsController::class, 'edit'])->name('doctors.edit');
         Route::put('/doctors/{doctor}', [DoctorsController::class, 'update'])->name('doctors.update');
