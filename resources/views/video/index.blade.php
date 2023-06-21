@@ -3,10 +3,6 @@
 @section('content')
     <div class="bg-light p-4 rounded">
         <h1>Video</h1>
-        <div class="lead">
-            Video List
-            {{-- <a href="{{ route('videocreate') }}" class="btn btn-primary btn-sm float-right">Add video</a> --}}
-        </div>
         
         <div class="mt-2">
             @include('layouts.partials.messages')
@@ -34,7 +30,6 @@
                         <td>{{ $video->firstname }}</td>
                         <td>{{ $video->lastname }}</td>
                         <td>{{ $video->email }}</td>
-                        <td>{{ $video->role }}</td>
                         @if(Auth::user()->hasRole('so'))
                             <td>Action</td>
                         @elseif(Auth::user()->hasRole('admin'))

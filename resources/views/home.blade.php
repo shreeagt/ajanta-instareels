@@ -40,12 +40,13 @@
                <div class="col-lg-6">
                   <div class="col-lg-12">
                      <div class="banner_text ">
-                        <h1> Hello  Dr.<span style="color:brown">{{ $doctor->firstname }} {{ $doctor->lastname }}</span><br>Please Upload your video<span class="red" style="color:red">.</span> </h1>
-                        <form action="{{ route('doctors.upload') }}" method="post">
+                        <h1> Hello  Dr.<span style="color:brown">{{ $doctor->firstname }} </span><br>Please Upload your video<span class="red" style="color:red">.</span> </h1>
+                        <form action="{{ route('doctors.upload') }}" method="post" enctype="multipart/form-data">
                            @csrf
                            <div class="drop-zone">
+                           <input type="hidden" name="dr_id" value="{{ $doctor->id }}">
                               <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                              <input type="file" name="myFile" class="drop-zone__input">
+                              <input type="file" name="video_path" class="drop-zone__input">
                            </div>
                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>

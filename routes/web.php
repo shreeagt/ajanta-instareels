@@ -85,8 +85,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/doctors/create', 'DoctorsController@create')->name('doctors.create');
         Route::post('/doctors/create', 'DoctorsController@insertdoctors')->name('doctors.insert');
         Route::get('/doctors/show', 'DoctorsController@showdoctors')->name('doctors.show');
-        Route::get('/doctors/home/{doctor}', 'DoctorsController@link')->name('doctors.link');
-        Route::post('/doctors/upload', 'DoctorsController@uploadvideo')->name('doctors.upload');
+        // Route::get('/doctors/home/{doctor}', 'DoctorsController@link')->name('doctors.link');
+        // Route::post('/doctors/upload', 'DoctorsController@upload')->name('doctors.upload');
         Route::delete('/doctors/{doctor}', 'DoctorsController@destroy')->name('doctors.destroy');
         Route::get('/doctors/{doctor}/edit', [DoctorsController::class, 'edit'])->name('doctors.edit');
         Route::put('/doctors/{doctor}', [DoctorsController::class, 'update'])->name('doctors.update');
@@ -95,4 +95,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/videocreate', 'VideoController@create')->name('videocreate');
     Route::post('/videsave', 'VideoController@store')->name('videosave');    
     Route::patch('/{video_id}/update', 'VideoController@update')->name('videoupdate');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
+        Route::get('/doctors/home/{doctor}', 'DoctorsController@link')->name('doctors.link');
+        Route::post('/doctors/upload', 'DoctorsController@upload')->name('doctors.upload');
 });

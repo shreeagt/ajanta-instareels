@@ -26,14 +26,11 @@
             @endrole
             @role('so')
             <div class="sidebar_list_item">
-              <a href="{{ route('roles.index') }}" class="{{ request()->routeIs('roles.index') ? 'active' : '' }} items-center"><i class="flaticon-cash-on-delivery mr15"></i>Roles</a>
-            </div>
-            <div class="sidebar_list_item">
               <a href="{{ route('videoList') }}" class="{{ request()->routeIs('videoList') ? 'active' : '' }} items-center"><i class="flaticon-cash-on-delivery mr15"></i>Video</a>
             </div>
             <div class="sidebar_list_item">
               <a href="{{ route('doctors.show') }}" class="items-center">
-                <i class="flaticon-house mr15"></i>Add Doctors
+                <i class="flaticon-house mr15"></i>Doctors
               </a>
             </div>
             @endrole

@@ -12,10 +12,12 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Dr. Name</th>
+                        <th>Clinic Name</th>
+                        <th>Contact No</th>
+                        <th>City</th>
+                        <th>Logo</th>
                         <th>Email</th>
-                        <th>Role</th>
                         <th>Link</th>
                         <th>Actions</th>
                     </tr>
@@ -26,8 +28,14 @@
                             <td>{{ $doctor->id }}</td>
                             <td>{{ $doctor->firstname }}</td>
                             <td>{{ $doctor->lastname }}</td>
+                            <td>{{ $doctor->contacno }}</td>
+                            <td>{{ $doctor->city }}</td>
+                            <td>@if ($doctor->logo)
+                                    <img src="{{ asset('logos/'.$doctor->logo) }}" alt="Logo" width="50" height="50">
+                                @else
+                                    No Logo
+                                @endif</td>
                             <td>{{ $doctor->email }}</td>
-                            <td>{{ $doctor->role }}</td>
                             <td><a href="{{ route('doctors.link', ['doctor' => $doctor->id]) }}" class="btn btn-success">Link</td>
                             <td>
                                 <a href="{{ route('doctors.edit', ['doctor' => $doctor->id]) }}" class="btn btn-info">Edit</a>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctors;
-use App\Models\VideoModel;
+use App\Models\Videos;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage; // Import the Storage facade
+
 
 class DoctorsController extends Controller
 {
@@ -15,13 +17,28 @@ class DoctorsController extends Controller
         return view('doctors.create');
     }
     public function insertdoctors(Request $request)
-    {
+   {
+    $folderPath = public_path('logos');
+    if (!file_exists($folderPath)) {
+        mkdir($folderPath, 0777, true);
+    }
+
     $idoctor = new Doctors;
     $idoctor->firstname = $request->input('firstname');
     $idoctor->lastname = $request->input('lastname');
     $idoctor->email = $request->input('email');
-    $idoctor->role = $request->input('role');
+    $idoctor->contacno = $request->input('contacno');
+    $idoctor->city = $request->input('city');
 
+    if ($request->hasFile('logo')) {
+        $logoPath = $request->file('logo')->getClientOriginalName();
+        $request->file('logo')->move($folderPath, $logoPath);
+        $logo = $request->file('logo');
+        // $logoPath = $logo->storeAs('logos', 'logo.png');
+        
+        // Save the file path or URL to your model or database if needed
+        $idoctor->logo = $logoPath;
+    }
     // Retrieve the soid from the users table and assign it to the soid column of the Doctors model
     $soid = Auth::id();
     $idoctor->soid = $soid;
@@ -53,12 +70,28 @@ class DoctorsController extends Controller
     
     public function update(Request $request, Doctors $doctor)
     {
+            $folderPath = public_path('logos');
+        if (!file_exists($folderPath)) {
+            mkdir($folderPath, 0777, true);
+        }
         // Update the doctor's details based on the form input
         $doctor->firstname = $request->input('firstname');
         $doctor->lastname = $request->input('lastname');
         $doctor->email = $request->input('email');
-        $doctor->role = $request->input('role');
-        $doctor->save();
+        // $doctor->role = $request->input('role');
+        $doctor->contacno = $request->input('contacno');
+        $doctor->city = $request->input('city');
+
+        if ($request->hasFile('logo')) {
+            $logoPath = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move($folderPath, $logoPath);
+            $doctor->logo = $logoPath;
+        }
+    // Retrieve the soid from the users table and assign it to the soid column of the Doctors model
+    $soid = Auth::id();
+    $doctor->soid = $soid;
+    
+    $doctor->save();
     
         // Redirect the user to the show page or any other appropriate page
         return redirect()->route('doctors.show', ['doctor' => $doctor->id]);
@@ -67,27 +100,29 @@ class DoctorsController extends Controller
     {
         return view ('home', ['doctor' => $doctor]);
     }
-    // public function uploadvideo(Request $request)
-    // {
-    //     $uvideo = new VideoModel;
-        
-    //     if ($request->hasFile('video')) {
-    //         $uvideo = $request->file('video');
-    //         $customName = 'video_' . time() . '.' . $uvideo->getClientOriginalExtension();
-    //         $destinationPath = 'uploads/videos';
-    //         $uvideo->move($destinationPath, $customName);
-    
-    //         $video_insert = VideoModel::create([
-    //             "video_path" => $customName,
-    //             "created_by" => auth()->id(),
-    //             "created_at" => date("Y-m-d H:i:s")
-    //         ]);
-    
-    //         $request->session()->flash('success', 'Data inserted successfully.');
-    //     } else {
-    //         $request->session()->flash('error', 'No video file uploaded.');
-    //     }
-    
-    //     return redirect()->route('doctors.upload');
-    // }
+    public function upload(Request $request)
+{
+    // Validate the file
+    $request->validate([
+        'video_path' => 'required|mimetypes:video/mp4,video/avi,video/quicktime|max:5242880', // Maximum file size is 5MB
+    ]);
+
+    // Create the videos/gallery folder if it doesn't exist
+    $folderPath = public_path('videos/gallery');
+    if (!file_exists($folderPath)) {
+        mkdir($folderPath, 0777, true);
+    }
+
+    // Store the file in the public/videos/gallery folder
+    $video = new Videos();
+    $video->video_path = $request->file('video_path')->getClientOriginalName(); // Store the original filename in the 'video_path' field
+    $request->file('video_path')->move($folderPath, $video->video_path); // Save the video to the public/videos/gallery folder
+
+    // Assign the 'drid' value to the 'drid' column of the 'Videos' model
+    $video->drid = $request->dr_id; 
+    $video->save();
+
+    // You can perform additional actions here, such as sending notifications or processing the video further
+    return redirect()->back()->with('success', 'Video uploaded successfully.');
+}
 }

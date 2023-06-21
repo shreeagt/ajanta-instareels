@@ -21,12 +21,13 @@ class UsersController extends Controller
     {  
         
         if (Auth::user()->hasRole('admin') ) {
-            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
-            ->whereHas('roles', function($role) {
-                $role->where('name', '=', "so");
-            })
-            ->where("mapping_user.mapping_user_id","=",Auth::user()->id)
-            ->paginate(10);
+            // $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
+            // ->whereHas('roles', function($role) {
+            //     $role->where('name', '=', "so");
+            // })
+            // ->where("mapping_user.mapping_user_id","=",Auth::user()->id)
+            // ->paginate(10);
+            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
         } elseif (Auth::user()->hasRole('so')) {
             $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
             ->whereHas('roles', function($role) {
@@ -71,7 +72,10 @@ class UsersController extends Controller
             'email' => 'required|email|unique:users,email',
             // 'password' => 'required|same:confirm-password',
             'password' => 'required',
-            'role' => 'required'
+            'role' => 'required',
+            'division' => 'required',
+            'headquarter' => 'required',
+            'designer' => 'required'
         ]);
     
         $input = $request->all();      

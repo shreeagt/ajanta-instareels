@@ -8,15 +8,15 @@
         </div>
 
         <div class="container mt-4">
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="firstname" class="form-label">First Name</label>
+                    <label for="firstname" class="form-label">Dr.Name</label>
                     <input value="{{ old('firstname') }}" 
                         type="text" 
                         class="form-control" 
                         name="firstname" 
-                        placeholder="first Name" required>
+                        placeholder="Dr. Name" required>
 
                     @if ($errors->has('firstname'))
                         <span class="text-danger text-left">{{ $errors->first('firstname') }}</span>
@@ -24,12 +24,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="lastname" class="form-label">Last Name</label>
+                    <label for="lastname" class="form-label">Clnic Name</label>
                     <input value="{{ old('lastname') }}" 
                         type="text" 
                         class="form-control" 
                         name="lastname" 
-                        placeholder="last Name" required>
+                        placeholder="Clinic Name" required>
                     @if ($errors->has('lastname'))
                         <span class="text-danger text-left">{{ $errors->first('lastname') }}</span>
                     @endif
@@ -60,7 +60,7 @@
                     @endif
                 </div>
 
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
                     <select class="form-control" name="role" required>
                         <option value="select_role">Select Role</option>
@@ -69,13 +69,46 @@
                     @if ($errors->has('role'))
                         <span class="text-danger text-left">{{ $errors->first('role') }}</span>
                     @endif
+                </div> -->
+
+                <div class="mb-3">
+                    <label for="contacno" class="form-label">Contact No</label>
+                    <input value="{{ old('contacno') }}" 
+                        type="text" 
+                        class="form-control" 
+                        name="contacno" 
+                        placeholder="Contact No" required>
+                    @if ($errors->has('contacno'))
+                        <span class="text-danger text-left">{{ $errors->first('contacno') }}</span>
+                    @endif
                 </div>
 
-                
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input value="{{ old('city') }}" 
+                        type="text" 
+                        class="form-control" 
+                        name="city" 
+                        placeholder="City" required>
+                    @if ($errors->has('city'))
+                        <span class="text-danger text-left">{{ $errors->first('city') }}</span>
+                    @endif
+                </div>
 
+                <div class="mb-3">
+                    <label for="logo" class="form-label">CLinic Logo</label>
+                    <input value="{{ old('logo') }}" 
+                        type="file" 
+                        class="form-control" 
+                        name="logo" 
+                        placeholder="Logo" required>
+                    @if ($errors->has('logo'))
+                        <span class="text-danger text-left">{{ $errors->first('logo') }}</span>
+                    @endif
+                </div>
                
 
-                <button type="submit" class="btn btn-primary">Save user</button>
+                <button type="submit" class="btn btn-primary">Save Doctor</button>
             </form>
         </div>
 
