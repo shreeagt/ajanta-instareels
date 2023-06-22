@@ -21,7 +21,7 @@ class VideoController extends Controller
         if (Auth::user()->hasRole('admin') ) {
             $doctor_details =DB::select('SELECT doctors.firstname,doctors.city,doctors.lastname,doctors.soid,videos.video_path FROM videos INNER JOIN doctors ON videos.drid = doctors.id where videos.dr_video_status="Approved";'); 
             $so_details=DB::select('select firstname,lastname,id from users');
-           // dd($vide,$videos);
+            //dd($doctor_details);
             /* VideoModel::select('video.*',"video_user.firstname as videouserfirstname","video_user.lastname as videouserlastname","approvebyuser.firstname as approvebyuserfirstname","approvebyuser.lastname as approvebyuserlastname")->join('mapping_user', 'video.created_by', '=', 'mapping_user.user_id')->join('users as video_user', 'video.created_by', '=','video_user.id')->join('users as approvebyuser', 'video.created_by', '=','approvebyuser.id')->latest()->paginate(10);*/
            
         } elseif (Auth::user()->hasRole('so')) {
