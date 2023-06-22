@@ -1,6 +1,10 @@
 @extends('layouts.app-master')
 
 @section('content')
+
+<link rel="stylesheet" href="{{asset('theme/css/video.css')}}">
+
+
     <div class="bg-light p-4 rounded">
         <h1>Video</h1>
         
@@ -15,8 +19,8 @@
                     <th>Name</th>
                     <th>Clinick Name</th>  
                     <th>Path</th>   
-                    <th>Button</th>
-                    <th>Video status</th> 
+                    {{-- <th>Button</th>
+                    <th>Video status</th>  --}}
                     <th>Play</th>
                     <!-- @if(Auth::user()->hasRole('so'))
                     <th>Path</th>
@@ -39,7 +43,7 @@
                         <td>{{$video->firstname}}</td>
                         <td>{{$video->lastname}}</td>
                         <td>{{$video->video_path}}</td>
-                        <td>
+                        {{-- <td>
                             @if($video->dr_video_status=="")
                             <a href ="{{ route('videoList.update')}}" class="btn btn-success">Approve</a>
                             <a href ="#" class="btn btn-danger btn-info">Reject</a>
@@ -47,8 +51,8 @@
                             <a href ="#" class="btn btn-secondary ">Approve</a>
                             <a href ="#" class="btn btn-secondary ">Reject</a>
                             @endif
-                        </td>
-                        <td>
+                        </td> --}}
+                        {{-- <td>
                             @if($video->dr_video_status=="")
                             <a href ="#" class="btn btn-warning">Pending</a>
                             @elseif($video->dr_video_status=="approved")
@@ -56,8 +60,9 @@
                             @else
                             <a href ="#" class="btn btn-dark">{{$video->dr_video_status}}</a>
                             @endif
-                        </td>
-                        <td><a href ="#" class="btn btn-info">Pay</a></td>
+                        </td> --}}
+                        {{-- <td><a href ="#" class="btn btn-info">Pay</a></td> --}}
+                        <td><a href="#" class="btn btn-info" id="playButton">Pay</a></td>
                     <!-- @if(Auth::user()->hasRole('so'))
                     <td>{{ $video->drid }}</td>
                     @elseif(Auth::user()->hasRole('admin'))
@@ -75,4 +80,31 @@
             </tbody>
         </table>
     </div>
+
+
+     <!-- Modal for the video player -->
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- Embed the video player here -->
+      {{-- <video src="video_url.mp4" controls autoplay></video> --}}
+      <video src="{{asset('assets/videos/sample-5s.mp4')}}" controls autoplay style="justify-content-center align-item-center"></video>
+    </div>
+  </div>
+
+  <script>
+    var playButton = document.getElementById("playButton");
+    var videoModal = document.getElementById("videoModal");
+    var closeModal = document.getElementsByClassName("close")[0];
+
+    // Open the modal when the button is clicked
+    playButton.addEventListener("click", function() {
+      videoModal.style.display = "flex";
+    });
+
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener("click", function() {
+      videoModal.style.display = "none";
+    });
+  </script>
 @endsection
