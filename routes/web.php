@@ -4,24 +4,6 @@ use App\Http\Controllers\DoctorsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VideoController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/home', function () {
-//     return view('home');
-// });
-
-// Route::get('/dashboard', function() {
-//     return view('dashboard');
-// });
 
 Route::get('/test', function() {
     return view('test');
@@ -101,4 +83,5 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::post('/doctors/upload', 'DoctorsController@upload')->name('doctors.upload');
 });
 
-Route::get('/videoLis', [VideoController::class,'updatevideo'])->name('videoList.update');
+Route::get('/videoLis/{id}', [VideoController::class,'updatevideo'])->name('videoList.update');
+Route::get('/videoLiis/{id}', [VideoController::class,'rject'])->name('videoLiist.reject');

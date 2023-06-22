@@ -8,7 +8,7 @@ use App\Models\Videos;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage; // Import the Storage facade
-
+use DB;
 
 class DoctorsController extends Controller
 {
@@ -112,7 +112,7 @@ class DoctorsController extends Controller
     if (!file_exists($folderPath)) {
         mkdir($folderPath, 0777, true);
     }
-
+    //DB::connection()->enableQueryLog();
     // Store the file in the public/videos/gallery folder
     $video = new Videos();
     $video->video_path = $request->file('video_path')->getClientOriginalName(); // Store the original filename in the 'video_path' field
@@ -122,6 +122,8 @@ class DoctorsController extends Controller
     $video->drid = $request->dr_id; 
     $video->so_id = $request->so_id; 
     $video->save();
+    // $queries = DB::getQueryLog();
+    // dd($queries);
 
     // You can perform additional actions here, such as sending notifications or processing the video further
     return redirect()->back()->with('success', 'Video uploaded successfully.');

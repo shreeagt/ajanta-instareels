@@ -18,7 +18,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col" width="1%">#</th>
+                <th scope="col" width="1%">Id</th>
                 <th scope="col" width="15%">Name</th>
                 <th scope="col">Email</th>
                
