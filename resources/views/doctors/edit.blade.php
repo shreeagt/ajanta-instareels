@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="bg-light p-4 rounded">
-        <h1>Add Doctors</h1>
+        <h1>Edit Doctors</h1>
         <div class="lead">
-            Add Doctors and assign role.
+            Edit Doctors.
         </div>
 
         <div class="container mt-4">

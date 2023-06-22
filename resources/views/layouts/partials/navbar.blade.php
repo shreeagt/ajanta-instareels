@@ -9,9 +9,9 @@
       <div class="dashboard__sidebar">
 
         <div class="dashboard_sidebar_list">
-        <div class="sidebar_list_item">
+        <!-- <div class="sidebar_list_item">
               <a href="{{ route('home.index') }}" class="{{ request()->routeIs('home.index') ? 'active' : '' }} items-center "><i class="flaticon-house mr15"></i>Home</a>
-            </div>
+            </div> -->
         @auth
             @role('admin')
             <div class="sidebar_list_item">

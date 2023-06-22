@@ -120,6 +120,7 @@ class DoctorsController extends Controller
 
     // Assign the 'drid' value to the 'drid' column of the 'Videos' model
     $video->drid = $request->dr_id; 
+    $video->so_id = $request->so_id; 
     $video->save();
 
     // You can perform additional actions here, such as sending notifications or processing the video further

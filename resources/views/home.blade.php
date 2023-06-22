@@ -45,6 +45,7 @@
                            @csrf
                            <div class="drop-zone">
                            <input type="hidden" name="dr_id" value="{{ $doctor->id }}">
+                           <input type="hidden" name="so_id" value="{{ $doctor->soid }}">
                               <span class="drop-zone__prompt">Drop file here or click to upload</span>
                               <input type="file" name="video_path" class="drop-zone__input">
                            </div>

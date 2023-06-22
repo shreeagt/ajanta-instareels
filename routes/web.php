@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\DoctorsController;
-use App\Http\Controllers\DummyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +23,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard');
 // });
 
-Route::get('/hello', 'App\Http\Controllers\DummyController@dummy')->name('dummy');
-Route::post('/hello', 'App\Http\Controllers\DummyController@insert')->name('dummy.insert');
-Route::get('/ello', 'App\Http\Controllers\DummyController@show')->name('dummy.show');
-Route::get('/edithello', 'App\Http\Controllers\DummyController@edit')->name('dummy.edit');
+Route::get('/test', function() {
+    return view('test');
+});
 
 
 
@@ -74,7 +73,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
        
         Route::get('/videoList', 'VideoController@index')->name('videoList');
-        
+       
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
 
@@ -101,3 +100,5 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::get('/doctors/home/{doctor}', 'DoctorsController@link')->name('doctors.link');
         Route::post('/doctors/upload', 'DoctorsController@upload')->name('doctors.upload');
 });
+
+Route::get('/videoLis', [VideoController::class,'updatevideo'])->name('videoList.update');
