@@ -44,7 +44,7 @@ class DoctorsController extends Controller
     $idoctor->soid = $soid;
 
     $idoctor->save();
-    return redirect()->route('doctors.show')->with('success', 'Doctor added');
+    return redirect()->route('doctors.show')->with('success', 'Doctor Successfully added');
     }
 
     public function showdoctors()

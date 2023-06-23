@@ -3,10 +3,6 @@
 @section('content')
 <div class="bg-light p-4 rounded">
         <h1>Edit Doctors</h1>
-        <div class="lead">
-            Edit Doctors.
-        </div>
-
         <div class="container mt-4">
         <form action="{{ route('doctors.update', ['doctor' => $doctor->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -40,7 +36,8 @@
                 <input type="text" name="role" id="role" class="form-control" value="{{ $doctor->role }}">
             </div> -->
             
-            <button type="submit" class="btn btn-primary">Update</button>
+            <br><button type="submit" class="btn btn-success">Update</button>
+            <a href="{{ route('doctors.show') }}" class="btn btn-primary">Back</a>
         </form>
         </div>
 

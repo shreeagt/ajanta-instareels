@@ -13,7 +13,9 @@
         </div>
 
         <table class="table table-striped">
-            
+            @php
+                $i=1;
+            @endphp
             @if(Auth::user()->hasRole('so'))
             <thead>
                 <tr>
@@ -31,7 +33,7 @@
                         @php
                         $video_for_modal="videos/gallery/".$video->video_path;
                     @endphp
-                        <td>{{$video->drid}}</td>
+                        <td>{{$i}}</td>
                         <td>{{$video->firstname}}</td>
                         <td>{{$video->lastname}}</td>
                         <td>
@@ -60,6 +62,9 @@
                             </div>
                           </div>
                     </tr>
+                    @php
+                        $i++;
+                    @endphp
                 @endforeach
             </tbody>
 

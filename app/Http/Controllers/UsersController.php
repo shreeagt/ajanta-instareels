@@ -27,14 +27,20 @@ class UsersController extends Controller
             // })
             // ->where("mapping_user.mapping_user_id","=",Auth::user()->id)
             // ->paginate(10);
-            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
+           // DB::connection()->enableQueryLog();
+        
+            $users=User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
+            //$queries = DB::getQueryLog();
+            //dd($queries);
+            // $users = User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
         } elseif (Auth::user()->hasRole('so')) {
-            $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
-            ->whereHas('roles', function($role) {
-                $role->where('name', '=', "doctor");
-            })->where("mapping_user.mapping_user_id","=",Auth::user()->id)
-            ->paginate(10);
+            // $users = User::join("mapping_user","users.id","=","mapping_user.user_id")
+            // ->whereHas('roles', function($role) {
+            //     $role->where('name', '=', "doctor");
+            // })->where("mapping_user.mapping_user_id","=",Auth::user()->id)
+            // ->paginate(10);
         }
+        //dd($users);
         return view('users.index', compact('users'));
     }
 
@@ -84,8 +90,7 @@ class UsersController extends Controller
         $user->assignRole($request->input('role'));
         MappingUser::create(["mapping_user_id"=>\Auth::user()->id,"user_id"=>$user->id,"created_at"=>date("Y-m-d H:i:s"),"created_by"=>\Auth::user()->id]);   
     
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        return redirect()->route('users.index')->with('success','User created successfully');
     }
 
     /**

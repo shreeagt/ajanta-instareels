@@ -3,10 +3,6 @@
 @section('content')
     <div class="bg-light p-4 rounded">
         <h1>Add Doctors</h1>
-        <div class="lead">
-            Add Doctors and assign role.
-        </div>
-
         <div class="container mt-4">
             <form method="POST" action="" enctype="multipart/form-data">
                 @csrf
@@ -108,7 +104,8 @@
                 </div>
                
 
-                <button type="submit" class="btn btn-primary">Save Doctor</button>
+                <button type="submit" class="btn btn-success">Save Doctor</button>
+                <a href="{{ route('doctors.show') }}" class="btn btn-primary">Back</a>
             </form>
         </div>
 

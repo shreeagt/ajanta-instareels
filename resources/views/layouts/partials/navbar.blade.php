@@ -29,7 +29,7 @@
               <a href="{{ route('videoList') }}" class="{{ request()->routeIs('videoList') ? 'active' : '' }} items-center"><i class="flaticon-cash-on-delivery mr15"></i>Video</a>
             </div>
             <div class="sidebar_list_item">
-              <a href="{{ route('doctors.show') }}" class="items-center">
+              <a href="{{ route('doctors.show') }}" class="{{ request()->routeIs('doctors.show') ? 'active' : '' }} {{ request()->routeIs('doctors.edit') ? 'active' : '' }} {{ request()->routeIs('doctors.create') ? 'active' : '' }} items-center">
                 <i class="flaticon-house mr15"></i>Doctors
               </a>
             </div>

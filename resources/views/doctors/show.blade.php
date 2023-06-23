@@ -6,7 +6,9 @@
         <div class="lead">
             <a href="{{ route('doctors.create') }}" class="btn btn-primary">Add Doctor</a>
         </div>
-        
+        <div class="mt-2">
+            @include('layouts.partials.messages')
+        </div>
         <div class="container mt-4">
             <table class="table">
                 <thead>
@@ -23,9 +25,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                @php
+                    $i=1;
+                @endphp
                     @foreach ($doctors as $doctor)
                         <tr>
-                            <td>{{ $doctor->id }}</td>
+                            <td>{{ $i }}</td>
                             <td>{{ $doctor->firstname }}</td>
                             <td>{{ $doctor->lastname }}</td>
                             <td>{{ $doctor->contacno }}</td>
@@ -46,10 +51,10 @@
                                 </form>
                             </td>
                         </tr>
+                        @php $i++; @endphp
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 @endsection
-

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h1>Add new user</h1>
+       <h1>Add new user</h1>
         <div class="lead">
             Add new user and assign role.
         </div>
@@ -126,8 +126,8 @@
 
                
 
-                <button type="submit" class="btn btn-primary">Save user</button>
-                <a href="{{ route('users.index') }}" class="btn btn-default">Back</a>
+                <button type="submit" class="btn btn-success">Save user</button>
+                <a href="{{ route('users.index') }}" class="btn btn-primary">Back</a>
             </form>
         </div>
 
