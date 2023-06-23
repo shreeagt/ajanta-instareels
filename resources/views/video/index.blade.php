@@ -99,7 +99,7 @@
                         <div id="videoModal" class="modal open_video">
                             <div class="modal-content">
                               <span class="close close_video">&times;</span>
-                              <embed src="{{asset($video_for_modal)}}" controls autoplay style="justify-content-center align-item-center"/>
+                              <video src="{{asset($video_for_modal)}}" controls autoplay style="justify-content-center align-item-center"></video>
                             </div>
                     </tr>
                 @endforeach
