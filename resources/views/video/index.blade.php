@@ -39,7 +39,7 @@
                         <td>
                             @if($video->dr_video_status=="")
                             <a href ="{{ route('videoList.update', $column_id=$video->id)}}" class="btn btn-success">Approve</a>
-                            <a href ="{{ route('videoLiist.reject', $column_id=$video->id)}}" class="btn btn-danger btn-info">Reject</a>
+                            <a href ="{{ route('videoLiist.reject', $column_id=$video->id)}}" class="btn btn-danger">Reject</a>
                             @else
                             <a href ="#" class="btn btn-secondary ">Approve</a>
                             <a href ="#" class="btn btn-secondary ">Reject</a>
@@ -58,7 +58,8 @@
                         <div id="videoModal" class="modal open_video">
                             <div class="modal-content">
                               <span class="close close_video">&times;</span>
-                              <embed src="{{asset($video_for_modal)}}" controls autoplay style="justify-content-center align-item-center"/>
+                              {{-- <embed src="{{asset($video_for_modal)}}" controls autoplay style="justify-content-center align-item-center"/> --}}
+                              <video src="{{asset($video_for_modal)}}" controls  style="justify-content-center align-item-center"></video>
                             </div>
                           </div>
                     </tr>
@@ -117,6 +118,7 @@
     var playButton = document.getElementsByClassName("playbtn_video");console.log(playButton.length);
     var videoModal = document.getElementsByClassName("open_video");
     var closeModal = document.getElementsByClassName("close_video");
+    var videoElement = document.getElementsByTagName("video");
 
     for (let i = 0; i < playButton.length; i++) {
        // console.log("ok");
@@ -127,7 +129,9 @@
 
     for (let i = 0; i < playButton.length; i++) {
         closeModal[i].addEventListener("click", function() {
+            videoElement[i].pause();
        videoModal[i].style.display = "none";
+       
      })
     }
 
