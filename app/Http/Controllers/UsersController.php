@@ -147,6 +147,17 @@ class UsersController extends Controller
         //     'roles' => 'required'
         // ]);
     
+        $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            // 'password' => 'required|same:confirm-password',
+            'password' => 'required',
+            'role' => 'required',
+            'division' => 'required',
+            'headquarter' => 'required',
+            'designer' => 'required'
+        ]);
+        
         $input = $request->all();
         // if(!empty($input['password'])){ 
         //     $input['password'] = Hash::make($input['password']);
