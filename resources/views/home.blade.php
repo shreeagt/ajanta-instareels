@@ -29,7 +29,8 @@
    </head>
    <body>
       <div class="banner-wrapper pt-md-0 pt-5">
-         <img src="{{asset('assets/images/ajanta-logo.png')}}" alt="logo" class="logo logoposition">
+         {{-- <img src="{{asset('assets/images/ajanta-logo.png')}}" alt="logo" class="logo logoposition"> --}}
+         <img src="{{asset('assets/images/instareel.png')}}" alt="logo" class="logo logoposition">
          <div class="container">
             <div class="row justify-content-center align-items-center">
                <div class="col-lg-6">
