@@ -126,6 +126,25 @@
       margin:40px;
   }
   
+  .instruction-cover{
+    display:inline-block;
+    width:50%;
+    margin-left:5%;
+  }
+
+
+  .instruction-cover textarea{
+    width: 100%;
+    border-radius: 11px;
+    border: none;
+  }
+
+  .instruction-cover label{
+      display: block;
+      font-size: 20px;
+      color:#041E42;
+      font-weight: 500;
+  }
       .banner-wrapper::before{
         display: block;
           position: absolute;
@@ -138,11 +157,12 @@
           width: 100%;
           content: '';
       }
+
       .drop-zone {
-    max-width: 300px;
+    max-width: 40%;
     height: 200px;
     padding: 25px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -153,6 +173,7 @@
     color: #954545;
     border: 4px dashed #009578;
     border-radius: 10px;
+    vertical-align: top;
   }
   
   .drop-zone--over {
@@ -186,6 +207,17 @@
     text-align: center;
   }
   
+  @media screen and (max-width:992px){
+    .drop-zone {
+      max-width: 80%;
+    }
+
+    .instruction-cover {
+      display: inline-block;
+      width: 100%;
+      margin-left:0;
+  }
+  }
   
   @media screen and (max-width:540px){
      .banner-wrapper{

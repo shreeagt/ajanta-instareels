@@ -11236,7 +11236,8 @@ span.active_status.active{
 .dashboard_sidebar_list .sidebar_list_item a{
   align-items: center;
   border-radius: 16px;
-  color: #041E42;
+  /* color: #DDF2FA;  */
+  color: #041E42; 
   display: flex;
   font-family: 'Jost';
   font-style: normal;
@@ -11259,7 +11260,7 @@ span.active_status.active{
 .dashboard_sidebar_list .sidebar_list_item a:focus,
 .dashboard_sidebar_list .sidebar_list_item a.-is-active {
   /* background-color: #F5C34B; */
-  background-color: #75bdd9;
+  background-color: #DDF2FA;
   color: #041E42;
 }
 .dashboard.dsh_board_sidebar_hidden .dashboard__sidebar {
@@ -11680,7 +11681,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:focus-visible{
   width: 100% !important;
 }
 .text-thm {
-  color: #75bdd9 !important;
+  color: #DDF2FA !important;
 }
 .hvr-text-thm:hover {
   color: #F5C34B !important;

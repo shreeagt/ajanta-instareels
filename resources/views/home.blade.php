@@ -53,10 +53,11 @@
                               <span class="drop-zone__prompt">Drop file here or click to upload</span>
                               <input type="file" name="video_path" class="drop-zone__input">
                            </div>
-                           <label for="w3review">instruction:</label>
-
+                           <div class="instruction-cover">
+                           <label for="w3review">Instruction:</label>
                            <textarea id="w3review" name="instruction" rows="4" cols="50">
                           </textarea>
+                          </div>
                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                      </div>
