@@ -41,7 +41,8 @@
               <a href="#" class="dashboard_sidebar_toggle_icon text-thm1 vam"><i class="fa-sharp fa-solid fa-bars-staggered"></i></a>
             </div>
             <div class="dashboard_header_logo">
-              <a href="/" class="logo">Instagram Videos<span class="text-thm">.</span></a>
+              {{-- <a href="/" class="logo">Instagram Videos<span class="text-thm">.</span></a> --}}
+              <a href="/" class="logo"><img src="{{asset('assets/images/instareel.png')}}" alt="logo" srcset="{{asset('assets/images/instareel.png')}}"></a>
             </div>
           </div>
         </div>
