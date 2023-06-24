@@ -25,34 +25,51 @@
                     </tr>
                 </thead>
                 <tbody>
-                @php
-                    $i=1;
-                @endphp
-                    @foreach ($doctors as $doctor)
+                    @php
+                        $i = 1;
+                    @endphp
+                    @if (isset($doctors[0]->firstname) != '')
+                        @foreach ($doctors as $doctor)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td>{{ $doctor->firstname }}</td>
+                                <td>{{ $doctor->lastname }}</td>
+                                <td>{{ $doctor->contacno }}</td>
+                                <td>{{ $doctor->city }}</td>
+                                <td>
+                                    @if ($doctor->logo)
+                                        <img src="{{ asset('logos/' . $doctor->logo) }}" alt="Logo" width="50"
+                                            height="50">
+                                    @else
+                                        No Logo
+                                    @endif
+                                </td>
+                                <td>{{ $doctor->email }}</td>
+                                <td><a href="{{ route('doctors.link', ['doctor' => $doctor->id]) }}"
+                                        class="btn btn-success">Link</td>
+                                <td>
+                                    <a href="{{ route('doctors.edit', ['doctor' => $doctor->id]) }}"
+                                        class="btn btn-info">Edit</a>
+                                    <a href="{{ route('doctors.destroy', ['doctor' => $doctor->id]) }}"
+                                        class="btn btn-danger"
+                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $doctor->id }}').submit();">Delete</a>
+                                    <form id="delete-form-{{ $doctor->id }}"
+                                        action="{{ route('doctors.destroy', ['doctor' => $doctor->id]) }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </td>
+                            </tr>
+                            @php $i++; @endphp
+                        @endforeach
+                    @else
                         <tr>
-                            <td>{{ $i }}</td>
-                            <td>{{ $doctor->firstname }}</td>
-                            <td>{{ $doctor->lastname }}</td>
-                            <td>{{ $doctor->contacno }}</td>
-                            <td>{{ $doctor->city }}</td>
-                            <td>@if ($doctor->logo)
-                                    <img src="{{ asset('logos/'.$doctor->logo) }}" alt="Logo" width="50" height="50">
-                                @else
-                                    No Logo
-                                @endif</td>
-                            <td>{{ $doctor->email }}</td>
-                            <td><a href="{{ route('doctors.link', ['doctor' => $doctor->id]) }}" class="btn btn-success">Link</td>
-                            <td>
-                                <a href="{{ route('doctors.edit', ['doctor' => $doctor->id]) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('doctors.destroy', ['doctor' => $doctor->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $doctor->id }}').submit();">Delete</a>
-                                <form id="delete-form-{{ $doctor->id }}" action="{{ route('doctors.destroy', ['doctor' => $doctor->id]) }}" method="POST" style="display: none;">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
+                            <td colspan='6'>
+                                <h1>Please add your doctors</h1>
                             </td>
                         </tr>
-                        @php $i++; @endphp
-                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
