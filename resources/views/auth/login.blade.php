@@ -6,13 +6,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
+height: 100vh;
 }
 
 body.text-center {
-    background: #71bbd9;
+    position: relative;
+      background-image: url('/assets/images/video_homebanner.png');
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      z-index: 0;
 }
 
+.logo{
+    max-width: 100px;
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+
+body.text-center::before{
+    display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          background-color: rgba(0, 0, 0, 0.15);
+          padding: 0;
+          width: 100%;
+          content: '';
+}
     main.form-signin {
     min-width: 500px;
     align-items: center;
@@ -22,7 +50,14 @@ body.text-center {
     /* background: #71bbd9; */
 }
 
+@media screen and (max-width : 992px){
+    body.text-center {
+    position: relative;
+      background-image: url('/assets/images/home/background.png');
 
+}
+
+}
 
 
 @media screen and (max-width: 540px) {   
@@ -39,6 +74,11 @@ body.text-center {
 
 </style>
 @section('content')
+
+<div class="logo">
+    <a href="/"><img src="{{asset('assets/images/instareel.png')}}" class="" alt="logo"></a>
+</div>
+
     <form method="post" action="{{ route('login.perform') }}">
         
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
