@@ -84,12 +84,14 @@ class UsersController extends Controller
             'designer' => 'required'
         ]);
     
-        $input = $request->all();      
+        $input = $request->all();  
+        //dd($input);    
         $input['password'] =  bcrypt($input['password']);
+        //DB::connection()->enableQueryLog();
         $user = User::create($input);
         $user->assignRole($request->input('role'));
         MappingUser::create(["mapping_user_id"=>\Auth::user()->id,"user_id"=>$user->id,"created_at"=>date("Y-m-d H:i:s"),"created_by"=>\Auth::user()->id]);   
-    
+        //$queries = DB::getQueryLog();//dd($queries);
         return redirect()->route('users.index')->with('success','User created successfully');
     }
 

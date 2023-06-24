@@ -72,12 +72,6 @@
         }
         </style>
 
-        @guest
-          <div class="text-end">
-            <a href="/login" class="btn btn-primary">Login</a>
-            {{-- <a href="/login" class="btn btn-warning">Sign-up</a> --}}
-          </div>
-        @endguest
         
       </div>
     </div>

@@ -107,6 +107,7 @@ class DoctorsController extends Controller
         'video_path' => 'required|mimetypes:video/mp4,video/avi,video/quicktime|max:5242880', // Maximum file size is 5MB
     ]);
 
+    dd($request);
     // Create the videos/gallery folder if it doesn't exist
     $folderPath = public_path('videos/gallery');
     if (!file_exists($folderPath)) {
@@ -122,8 +123,7 @@ class DoctorsController extends Controller
     $video->drid = $request->dr_id; 
     $video->so_id = $request->so_id; 
     $video->save();
-    // $queries = DB::getQueryLog();
-    // dd($queries);
+    // $queries = DB::getQueryLog();// dd($queries);
 
     // You can perform additional actions here, such as sending notifications or processing the video further
     return redirect()->back()->with('success', 'Video uploaded successfully.');
