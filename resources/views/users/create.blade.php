@@ -36,9 +36,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Password</label>
-                    <input value="{{ old('password') }}" 
-                        type="text" 
+                    {{-- <label for="name" class="form-label">Password</label> --}}
+                    <input value="bidinls" 
+                        type="hidden" 
                         class="form-control" 
                         name="password" 
                         placeholder="password" required>
@@ -98,7 +98,7 @@
                         <span class="text-danger text-left">{{ $errors->first('designer') }}</span>
                     @endif
                 </div>
-
+<?php //echo"<pre>";print_r();echo"</pre>";?>
                 <div class="mb-3">
                     <label for="role" class="form-label">Role</label>
                     <select class="form-control" 

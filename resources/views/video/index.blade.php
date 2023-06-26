@@ -24,6 +24,7 @@
                         <th>Clinick Name</th>
                         <th>Button</th>
                         <th>Video status</th>
+                        <th>Doctor Instruction</th>
                         <th>Play</th>
                     </tr>
                 </thead>
@@ -54,9 +55,10 @@
                                     @elseif($video->dr_video_status == 'Approved')
                                         <a href="#" class="btn btn-primary">Approve</a>
                                     @else
-                                        <a href="#" class="btn btn-dark">Rjected</a>
+                                        <a href="#" class="btn btn-dark">Rejected</a>
                                     @endif
                                 </td>
+                                <td>{{$video->doctor_instruction}}</td>
                                 <td><a href="#" class="btn btn-info playbtn_video" id="playButton">Play</a></td>
                                 <div id="videoModal" class="modal open_video">
                                     <div class="modal-content">
@@ -88,6 +90,7 @@
                         <th>Doctor Name</th>
                         <th>Clinick Name</th>
                         <th>Clinick Address</th>
+                        <th>doctor_instruction</th>
                         <th>Play</th>
                     </tr>
                 </thead>
@@ -108,6 +111,7 @@
                                 <td>{{ $details->firstname }}</td>
                                 <td>{{ $details->lastname }}</td>
                                 <td>{{ $details->city }}</td>
+                                <td>{{$details->doctor_instruction}}</td>
                                 <td><a href="#" class="btn btn-info playbtn_video" id="playButton">Play</a></td>
                                 <div id="videoModal" class="modal open_video">
                                     <div class="modal-content">

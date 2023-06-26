@@ -32,9 +32,9 @@ class LoginController extends Controller
     {
        // dd($request);
         $credentials = $request->getCredentials();
-        //dd($credentials);
+       // dd($credentials);
         if(!Auth::validate($credentials)):
-            return redirect()->to('login')->withErrors(trans('auth.failed'));
+            return redirect()->to('/')->withErrors(trans('auth.failed'));
         endif;
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
