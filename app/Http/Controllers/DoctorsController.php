@@ -107,21 +107,20 @@ class DoctorsController extends Controller
         'video_path' => 'required|mimetypes:video/mp4,video/avi,video/quicktime|max:5242880', // Maximum file size is 5MB
     ]);
 
-    dd($request);
-    // Create the videos/gallery folder if it doesn't exist
+    //dd($request);// Create the videos/gallery folder if it doesn't exist
     $folderPath = public_path('videos/gallery');
     if (!file_exists($folderPath)) {
         mkdir($folderPath, 0777, true);
     }
-    //DB::connection()->enableQueryLog();
-    // Store the file in the public/videos/gallery folder
+    //DB::connection()->enableQueryLog();// Store the file in the public/videos/gallery folder
     $video = new Videos();
     $video->video_path = $request->file('video_path')->getClientOriginalName(); // Store the original filename in the 'video_path' field
     $request->file('video_path')->move($folderPath, $video->video_path); // Save the video to the public/videos/gallery folder
 
     // Assign the 'drid' value to the 'drid' column of the 'Videos' model
     $video->drid = $request->dr_id; 
-    $video->so_id = $request->so_id; 
+    $video->so_id = $request->so_id;
+    $video->doctor_instruction=$request->instruction;
     $video->save();
     // $queries = DB::getQueryLog();// dd($queries);
 
