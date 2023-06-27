@@ -20,18 +20,18 @@
             <tr>
                 <th scope="col" width="1%">Id</th>
                 <th scope="col" width="15%">Name</th>
-                <th scope="col">Email</th>
+                <th scope="col">Employee Id</th>
                
                 <th scope="col" width="10%">Operations</th>
                 <th scope="col" width="1%" colspan="3"></th>    
             </tr>
             </thead>
             <tbody>
-                <?php //echo"<pre>";print_r($users);echo"</pre>";?>
+                <?php $i=1; //echo"<pre>";print_r($users);echo"</pre>";?>
 
                 @foreach($users as $user)
                     <tr>
-                        <th scope="row">{{ $user->id }}</th>
+                        <th scope="row"><?php echo $i; ?></th>
                         <td>{{ $user->firstname }}</td>
                         <td>{{ $user->email }}</td>
                         
@@ -43,15 +43,15 @@
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         </td>
-                    </tr>
+                    </tr><?php $i++ ?>
                 @endforeach
                 
             </tbody>
         </table>
 
-        <div class="d-flex">
+        {{-- <div class="d-flex">
             {!! $users->links() !!}
-        </div>
+        </div> --}}
 
     </div>
 @endsection

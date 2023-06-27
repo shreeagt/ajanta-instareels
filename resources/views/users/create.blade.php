@@ -24,12 +24,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Employee Id</label>
-                    <input value="{{ old('lastname') }}" 
-                        type="text" 
+                    {{-- <label for="name" class="form-label">Last name</label> --}}
+                    <input value="1" 
+                        type="hidden" 
                         class="form-control" 
                         name="lastname" 
-                        placeholder="Employee Id" required>
+                        placeholder="last name" required>
                     @if ($errors->has('lastname'))
                         <span class="text-danger text-left">{{ $errors->first('lastname') }}</span>
                     @endif
@@ -49,12 +49,12 @@
 
                
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Employee Id</label>
                     <input value="{{ old('email') }}"
-                        type="email" 
+                        type="text" 
                         class="form-control" 
                         name="email" 
-                        placeholder="Email address" required>
+                        placeholder="Employee Id" required>
                     @if ($errors->has('email'))
                         <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                     @endif
@@ -87,12 +87,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="designer" class="form-label">Designer</label>
+                    <label for="designer" class="form-label">Designation</label>
                     <input value="{{ old('designer') }}" 
                         type="text" 
                         class="form-control" 
                         name="designer" 
-                        placeholder="Designer" required>
+                        placeholder="Designation" required>
 
                     @if ($errors->has('designer'))
                         <span class="text-danger text-left">{{ $errors->first('designer') }}</span>

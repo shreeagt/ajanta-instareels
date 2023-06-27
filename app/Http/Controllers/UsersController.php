@@ -27,10 +27,12 @@ class UsersController extends Controller
             // })
             // ->where("mapping_user.mapping_user_id","=",Auth::user()->id)
             // ->paginate(10);
-           // DB::connection()->enableQueryLog();
+           //DB::connection()->enableQueryLog();
         
-            $users=User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
-            //$queries = DB::getQueryLog();
+            //$users=User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
+           $users= DB::select("select * from users where lastname=1");
+            // dd($users);
+           // $queries = DB::getQueryLog();
             //dd($queries);
             // $users = User::join("mapping_user","users.id","=","mapping_user.user_id")->paginate(10000000);
         } elseif (Auth::user()->hasRole('so')) {
@@ -75,7 +77,7 @@ class UsersController extends Controller
         $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required',
             // 'password' => 'required|same:confirm-password',
             'password' => 'required',
             'role' => 'required',
@@ -89,9 +91,13 @@ class UsersController extends Controller
         $input['password'] =  bcrypt($input['password']);
         //DB::connection()->enableQueryLog();
         $user = User::create($input);
-        $user->assignRole($request->input('role'));
+        //$queries = DB::getQueryLog();dd($queries);
+        
+       $user->assignRole($request->input('role'));
+
+        //DB::connection()->enableQueryLog();
         MappingUser::create(["mapping_user_id"=>\Auth::user()->id,"user_id"=>$user->id,"created_at"=>date("Y-m-d H:i:s"),"created_by"=>\Auth::user()->id]);   
-        //$queries = DB::getQueryLog();//dd($queries);
+        //$queries = DB::getQueryLog();dd($queries);
         return redirect()->route('users.index')->with('success','User created successfully');
     }
 
@@ -186,6 +192,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user) 
     {
+        
         $user->delete();
         return redirect()->route('users.index')
             ->withSuccess(__('User deleted successfully.'));
