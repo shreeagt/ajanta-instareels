@@ -42,7 +42,7 @@
             </div>
             <div class="dashboard_header_logo">
               {{-- <a href="/" class="logo">Instagram Videos<span class="text-thm">.</span></a> --}}
-              <a href="/" class="logo"><img src="{{asset('assets/images/instareel.png')}}" alt="logo" srcset="{{asset('assets/images/instareel.png')}}"></a>
+              <a href="/" class="logo"><img src="{{asset('assets/images/instareel.png')}}" alt="logo" ></a>
             </div>
           </div>
         </div>
