@@ -439,6 +439,7 @@
 /* Medium devices (min-width:768px) (max-width: 991.98px) // (tablets, less than 992px) */
 @media only screen and (max-width:991px){
 	/* ExTra Class Start*/
+	.dashboard__sidebar {margin-top: 155px;}
 	.mb0-md,.mb0-991{margin-bottom: 0 !important;}
 	.mb10-md,.mb10-991{margin-bottom: 10px !important;}
 	.mb15-md,.mb15-991{margin-bottom: 15px !important;}
@@ -553,6 +554,7 @@
 	.banner_one.home5_style .thumb img{height: 200px;}
 	.banner_one.home3_style.h900{height: 600px;}
 	.banner_one.home7_banr_slider{margin-bottom: 80px;}
+
 }
 @media only screen and (max-width:768px){
 	.menu-toggle {background-color: transparent !important;}

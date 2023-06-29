@@ -4,7 +4,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="">
-      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <title>BIDINLS</title>
+      <meta name="author" content="">
       <meta name="generator" content="Hugo 0.87.0">
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <!-- CSRF Token -->
@@ -27,6 +28,11 @@
       <![endif]-->
       <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
    </head>
+   <STYle>
+        .logo{
+    max-width:100px;
+  }
+   </STYle>
    <body>
       <div class="banner-wrapper pt-md-0 pt-5">
          {{-- <img src="{{asset('assets/images/ajanta-logo.png')}}" alt="logo" class="logo logoposition"> --}}

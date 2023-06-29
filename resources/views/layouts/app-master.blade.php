@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIDINLS</title>
 <meta name="description" content="">
-<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="author" content="">
+
 <meta name="generator" content="Hugo 0.87.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- CSRF Token -->
-@stack('title')
+{{-- @stack('title') --}}
 <!-- css file -->
 <link rel="stylesheet" href="{{asset('theme/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('theme/css/style.css')}}">
@@ -28,6 +30,12 @@
     
 <script src="{{asset('assets/libs/jquery/jquery.min.js')}}"></script>
 </head>
+
+<style>
+  .logo{
+    max-width:100px;
+  }
+</style>
 <body>
 
   <div class="wrapper">
@@ -36,7 +44,7 @@
     <div class="header__container pt20 pb20 pl30 pr30">
       <div class="row justify-between items-center">
         <div class="col-sm-4 col-xl-2">
-          <div class="text-center text-lg-start d-flex mb15-520">
+          <div class="text-center text-lg-start d-flex align-items-center mb15-520">
             <div class="fz20 me-4">
               <a href="#" class="dashboard_sidebar_toggle_icon text-thm1 vam"><i class="fa-sharp fa-solid fa-bars-staggered"></i></a>
             </div>

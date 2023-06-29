@@ -19253,3 +19253,7 @@ input.quantity-num[type="number"]::-webkit-outer-spin-button {
 .zoomContainer{
   height: 200px !important;
 }
+
+@media only screen and (max-width:991px){
+  .dashboard__sidebar {margin-top: 155px;}
+}
