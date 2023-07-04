@@ -23,22 +23,41 @@ class DoctorsController extends Controller
         mkdir($folderPath, 0777, true);
     }
 
+    $FolderPath = public_path('photos');
+    if (!file_exists($FolderPath)) {
+        mkdir($FolderPath, 0777, true);
+    }
+
     $idoctor = new Doctors;
     $idoctor->firstname = $request->input('firstname');
     $idoctor->lastname = $request->input('lastname');
     $idoctor->email = $request->input('email');
     $idoctor->contacno = $request->input('contacno');
     $idoctor->city = $request->input('city');
+    $idoctor->speciality = $request->input('speciality');
+    $idoctor->mci = $request->input('mci');
 
-    if ($request->hasFile('logo')) {
-        $logoPath = $request->file('logo')->getClientOriginalName();
-        $request->file('logo')->move($folderPath, $logoPath);
-        $logo = $request->file('logo');
-        // $logoPath = $logo->storeAs('logos', 'logo.png');
+    if ($request->hasFile('photo')) {
+        $photo = $request->file('photo');
+        $photoPath = $photo->getClientOriginalExtension();
+        $photoName = uniqid().'.'.$photoPath;
+        $photo->move($FolderPath, $photoName);
         
         // Save the file path or URL to your model or database if needed
-        $idoctor->logo = $logoPath;
+        $idoctor->photo = $photoName;
     }
+
+    if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+        $logoPath = $logo->getClientOriginalExtension();
+        $logoName = uniqid().'.'.$logoPath;
+        $logo->move($folderPath, $logoName);
+        
+        // Save the file path or URL to your model or database if needed
+        $idoctor->logo = $logoName;
+    }
+
+
     // Retrieve the soid from the users table and assign it to the soid column of the Doctors model
     $soid = Auth::id();
     $idoctor->soid = $soid;
@@ -74,6 +93,11 @@ class DoctorsController extends Controller
         if (!file_exists($folderPath)) {
             mkdir($folderPath, 0777, true);
         }
+
+        $FolderPath = public_path('photos');
+        if (!file_exists($FolderPath)) {
+            mkdir($FolderPath, 0777, true);
+        }
         // Update the doctor's details based on the form input
         $doctor->firstname = $request->input('firstname');
         $doctor->lastname = $request->input('lastname');
@@ -81,12 +105,33 @@ class DoctorsController extends Controller
         // $doctor->role = $request->input('role');
         $doctor->contacno = $request->input('contacno');
         $doctor->city = $request->input('city');
+        $doctor->mci = $request->input('mci');
 
-        if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->getClientOriginalName();
-            $request->file('logo')->move($folderPath, $logoPath);
-            $doctor->logo = $logoPath;
+        if ($request->has('speciality')) {
+            $doctor->speciality = $request->input('speciality');
         }
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $photoPath = $photo->getClientOriginalExtension();
+            $photoName = uniqid().'.'.$photoPath;
+            $photo->move($FolderPath, $photoName);
+            
+            // Save the file path or URL to your model or database if needed
+            $doctor->photo = $photoName;
+        }
+    
+        if ($request->hasFile('logo')) {
+            $logo = $request->file('logo');
+            $logoPath = $logo->getClientOriginalExtension();
+            $logoName = uniqid().'.'.$logoPath;
+            $logo->move($folderPath, $logoName);
+            
+            // Save the file path or URL to your model or database if needed
+            $doctor->logo = $logoName;
+        }
+
+        
     // Retrieve the soid from the users table and assign it to the soid column of the Doctors model
     $soid = Auth::id();
     $doctor->soid = $soid;
@@ -112,9 +157,12 @@ class DoctorsController extends Controller
     if (!file_exists($folderPath)) {
         mkdir($folderPath, 0777, true);
     }
+
+    $extension = $request->file('video_path')->getClientOriginalExtension();
+
     //DB::connection()->enableQueryLog();// Store the file in the public/videos/gallery folder
     $video = new Videos();
-    $video->video_path = $request->file('video_path')->getClientOriginalName(); // Store the original filename in the 'video_path' field
+    $video->video_path = uniqid().'.'.$extension;//$request->file('video_path')->getClientOriginalName(); // Store the original filename in the 'video_path' field
     $request->file('video_path')->move($folderPath, $video->video_path); // Save the video to the public/videos/gallery folder
 
     // Assign the 'drid' value to the 'drid' column of the 'Videos' model

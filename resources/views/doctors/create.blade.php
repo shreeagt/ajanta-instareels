@@ -80,6 +80,20 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="speciality" class="form-label">Speciality</label>
+                    <select class="form-control" name="speciality" required>
+                        <option value="">Select Speciality</option>
+                        <option value="General Opthamologist" {{ old('speciality') == 'General Opthamologist' ? 'selected' : '' }}>General Opthamologist</option>
+                        <option value="Retina Specialist" {{ old('speciality') == 'Retina Specialist' ? 'selected' : '' }}>Retina Specialist</option>
+                        <option value="Cornea Specialist" {{ old('speciality') == 'Cornea Specialist' ? 'selected' : '' }}>Cornea Specialist</option>
+                        <option value="Glaucoma Specialist" {{ old('speciality') == 'Glaucoma Specialist' ? 'selected' : '' }}>Glaucoma Specialist</option>
+                    </select>
+                    @if ($errors->has('speciality'))
+                        <span class="text-danger text-left">{{ $errors->first('speciality') }}</span>
+                    @endif
+                </div>
+                
+                <div class="mb-3">
                     <label for="city" class="form-label">City</label>
                     <input value="{{ old('city') }}" 
                         type="text" 
@@ -88,6 +102,18 @@
                         placeholder="City" required>
                     @if ($errors->has('city'))
                         <span class="text-danger text-left">{{ $errors->first('city') }}</span>
+                    @endif
+                </div>
+
+                <div class="mb-3">
+                    <label for="mci" class="form-label">MCI Registration Number</label>
+                    <input value="{{ old('mci') }}" 
+                        type="text" 
+                        class="form-control" 
+                        name="mci" 
+                        placeholder="MCI Registration Number" required>
+                    @if ($errors->has('mci'))
+                        <span class="text-danger text-left">{{ $errors->first('mci') }}</span>
                     @endif
                 </div>
 
@@ -103,6 +129,17 @@
                     @endif
                 </div>
                
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Dr. Photo</label>
+                    <input value="{{ old('photo') }}" 
+                        type="file" 
+                        class="form-control" 
+                        name="photo" 
+                        placeholder="Logo" required>
+                    @if ($errors->has('photo'))
+                        <span class="text-danger text-left">{{ $errors->first('photo') }}</span>
+                    @endif
+                </div>
 
                 <button type="submit" class="btn btn-success">Save Doctor</button>
                 <a href="{{ route('doctors.show') }}" class="btn btn-primary">Back</a>
