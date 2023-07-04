@@ -173,6 +173,8 @@ class DoctorsController extends Controller
     // $queries = DB::getQueryLog();// dd($queries);
 
     // You can perform additional actions here, such as sending notifications or processing the video further
-    return redirect()->back()->with('success', 'Video uploaded successfully.');
+    // return redirect()->back()->with('success', 'Video uploaded successfully.');
+    return redirect('/thankyou')->with('success', 'Video uploaded successfully.');
+
 }
 }
