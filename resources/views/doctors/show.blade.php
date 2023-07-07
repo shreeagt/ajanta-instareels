@@ -43,18 +43,18 @@
                                 <td>{{ $doctor->speciality }}</td>
                                 <td>
                                     @if ($doctor->logo)
-                                        <img src="{{ asset('logos/' . $doctor->logo) }}" alt="Logo" width="50"
-                                            height="50">
+                                    <img src="{{ $doctor->logo }}" alt="Logo" width="50" height="50">
                                     @else
                                         No Logo
                                     @endif
                                 </td>
                                 <td>{{ $doctor->email }}</td>
                                 <td>@if ($doctor->photo)
-                                    <img src="{{ asset('photos/'.$doctor->photo) }}" alt="Logo" width="50" height="50">
-                                @else
+                                    <img src="{{ $doctor->photo }}" alt="Photo" width="50" height="50">
+                                    @else
                                     No Logo
-                                @endif</td>
+                                @endif
+                                </td>
                                 <td><a href="{{ route('doctors.link', ['doctor' => $doctor->id]) }}"
                                         class="btn btn-success">Link</td>
                                 <td>

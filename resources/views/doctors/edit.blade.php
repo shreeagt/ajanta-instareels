@@ -39,12 +39,13 @@
             </div>
             <div class="form-group">
                 <label for="logo">Logo</label>
-                <input type="file" name="logo" id="logo" class="form-control" value="logo">
+                <input type="file" name="logo" id="logo" value="{{ $doctor->logo }}" class="form-control">
             </div>
             <div class="form-group">
                 <label for="photo">Dr. Photo</label>
-                <input type="file" name="photo" id="photo" class="form-control" value="photo">
+                <input type="file" name="photo" id="photo" value="{{ $doctor->photo }}" class="form-control">
             </div>
+
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" class="form-control" value="{{ $doctor->email }}">
