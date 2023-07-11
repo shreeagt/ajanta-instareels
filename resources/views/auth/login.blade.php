@@ -11,7 +11,7 @@ height: 100vh;
 
 body.text-center {
     position: relative;
-      background-image: url('/assets/images/video_homebanner.png');
+      background-image: url('/assets/images/home/background.jpg');
       background-repeat: no-repeat;
       background-position-y: center;
       background-position-x: center;
@@ -53,8 +53,7 @@ body.text-center::before{
 @media screen and (max-width : 992px){
     body.text-center {
     position: relative;
-      background-image: url('/assets/images/home/background.png');
-
+      background-image: url('/assets/images/home/background-mobile.png');
 }
 
 }
