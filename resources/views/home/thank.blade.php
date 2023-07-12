@@ -67,7 +67,7 @@
     align-items: center;
         /* background-color: rgb(0, 0, 0); */
         position: relative;
-    background-image: url('/assets/images/thank_desk.png');
+    background-image: url('/assets/images/home/background.jpg');
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
@@ -135,7 +135,7 @@ video#videoPlayer {
 
 @media screen and (max-width: 768px){
     .thank_banner {
-    background-image: url('/assets/images/thankyou_banner.png');
+    background-image: url('/assets/images/home/background-mobile.png');
 }
 }
 </style>

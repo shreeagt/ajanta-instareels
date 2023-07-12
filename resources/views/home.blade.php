@@ -239,7 +239,7 @@
          
            const fileInput = document.querySelector('.drop-zone__input');
            const allowedExtensions = ['mp4', 'avi', 'mov']; // Allowed video file extensions
-           const maxSizeInBytes = 5 * 1024 * 1024; // 2MB
+           const maxSizeInBytes = 100 * 1024 * 1024; // 2MB
          
            const file = fileInput.files[0];
          
@@ -259,7 +259,7 @@
          
            // Check the file size
            if (file.size > maxSizeInBytes) {
-             alert('File size exceeds the limit of 2MB.');
+             alert('File size exceeds the limit of 100MB.');
              return false;
            }
          
