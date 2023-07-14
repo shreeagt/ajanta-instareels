@@ -112,7 +112,7 @@
 .logo{
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     z-index: 4;
 }
 
@@ -127,6 +127,10 @@ video#videoPlayer {
     border-radius: 20px;
     max-width: 500px;
     max-height: 500px;
+}
+
+.logo.bimat-logo {
+    left: 10px;
 }
 *{
     margin:0;
@@ -144,6 +148,9 @@ video#videoPlayer {
     <a href="/" class="logo">
         <img src="{{asset('assets/images/instareel.png')}}">
       </a>
+      <a href="/" class="logo  bimat-logo">
+      <img src="{{asset('assets/images/bimat-logo.png')}}" alt="logo" class="">
+    </a>
 
     <div class="thank_banner">
         <div class="thank">

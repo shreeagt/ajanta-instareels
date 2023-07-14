@@ -23,10 +23,15 @@ body.text-center {
 }
 
 .logo{
-    max-width: 100px;
+    max-width: 150px;
     position: absolute;
     top:10px;
     right:10px;
+}
+
+.bimat-logo{
+    left:10px;
+    right:unset;
 }
 
 body.text-center::before{
@@ -74,8 +79,13 @@ body.text-center::before{
 </style>
 @section('content')
 
+
 <div class="logo">
-    <a href="/"><img src="{{asset('assets/images/instareel.png')}}" class="" alt="logo"></a>
+    <a href="#"><img src="{{asset('assets/images/instareel.png')}}" class="" alt="logo"></a>
+</div>
+
+<div class="logo bimat-logo">
+    <a href="#"><img src="{{asset('assets/images/bimat-logo.png')}}" class="" alt="logo"></a>
 </div>
 
     <form method="post" action="{{ route('login.perform') }}">
@@ -83,7 +93,7 @@ body.text-center::before{
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         {{-- <img class="mb-4" src="{!! url('images/bootstrap-logo.svg') !!}" alt="" width="72" height="57"> --}}
         
-        <h1 class="h3 mb-3 fw-normal">Login</h1>
+        <h1 class="h3 mb-3 fw-normal">Intareel <br> Login</h1>
 
         @include('layouts.partials.messages')
 
@@ -103,12 +113,13 @@ body.text-center::before{
             @endif
         </div>
 
-        <div class="form-group mb-3">
+        {{-- <div class="form-group mb-3">
             <label for="remember">Remember me</label>
             <input type="checkbox" name="remember" value="1">
-        </div>
+        </div> --}}
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+        {{-- <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> --}}
+        <button class="btn btn-lg btn-primary" type="submit">Login</button>
         
         @include('auth.partials.copy')
     </form>

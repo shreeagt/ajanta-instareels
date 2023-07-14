@@ -37,18 +37,20 @@
       <div class="banner-wrapper pt-md-0 pt-5">
          {{-- <img src="{{asset('assets/images/ajanta-logo.png')}}" alt="logo" class="logo logoposition"> --}}
          <img src="{{asset('assets/images/instareel.png')}}" alt="logo" class="logo logoposition">
+         <img src="{{asset('assets/images/bimat-logo.png')}}" alt="logo" class="logo logoposition bimat-logo">
+
          <div class="container">
             <div class="row justify-content-center align-items-center">
                <div class="col-lg-6">
                   <div class="img-shree-cover">
-                     <img src="{{asset('assets/images/home/doc.png')}}" style="-webkit-animation: bounceHero 5s ease-in-out infinite;" class="img-fluid" alt="docs">
+                     <img src="{{asset('assets/images/home/instareeler.gif')}}" style="-webkit-animation: bounceHero 5s ease-in-out infinite;" class="img-fluid" alt="docs">
                   </div>
                </div>
                <div class="col-lg-6">
                   <div class="col-lg-12">
                      <div class="banner_text ">
                         <h1> Hello  Dr.<span style="color:brown">{{ $doctor->firstname }} </span><br>Please Upload your video<span class="red" style="color:red">.</span> </h1>
-                        <form action="{{ route('doctors.upload') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('doctors.upload') }}" class="text-center" method="post" enctype="multipart/form-data">
                            <div class="mt-2">
                               @include('layouts.partials.messages')
                           </div>
@@ -56,12 +58,12 @@
                            <div class="drop-zone">
                            <input type="hidden" name="dr_id" value="{{ $doctor->id }}">
                            <input type="hidden" name="so_id" value="{{ $doctor->soid }}">
-                              <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                              <span class="drop-zone__prompt" style="color:#ffffff">Drop file here or click to upload</span>
                               <input type="file" name="video_path" class="drop-zone__input">
                            </div>
                            <div class="instruction-cover">
                            <label for="w3review">Instruction:</label>
-                           <textarea id="w3review" name="instruction" rows="4" cols="50">
+                           <textarea id="w3review" name="instruction" rows="4" cols="50" >
                           </textarea>
                           </div>
                            <button type="submit" class="btn btn-primary mt-3">Submit</button>

@@ -83,7 +83,7 @@
                     <label for="speciality" class="form-label">Speciality</label>
                     <select class="form-control" name="speciality" required>
                         <option value="">Select Speciality</option>
-                        <option value="General Opthamologist" {{ old('speciality') == 'General Opthamologist' ? 'selected' : '' }}>General Opthamologist</option>
+                        <option value="General Opthalmologist" {{ old('speciality') == 'General Opthalmologist' ? 'selected' : '' }}>General Opthalmologist</option>
                         <option value="Retina Specialist" {{ old('speciality') == 'Retina Specialist' ? 'selected' : '' }}>Retina Specialist</option>
                         <option value="Cornea Specialist" {{ old('speciality') == 'Cornea Specialist' ? 'selected' : '' }}>Cornea Specialist</option>
                         <option value="Glaucoma Specialist" {{ old('speciality') == 'Glaucoma Specialist' ? 'selected' : '' }}>Glaucoma Specialist</option>
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="logo" class="form-label">CLinic Logo</label>
+                    <label for="logo" class="form-label">Clinic Logo</label>
                     <input value="{{ old('logo') }}" 
                         type="file" 
                         class="form-control" 
