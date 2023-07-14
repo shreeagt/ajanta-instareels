@@ -62,16 +62,11 @@
             </ul>
           </div>
         </div>
+
+   
         @endauth
         <div class="col-sm-3 col-xl-3 d-none d-md-block">
-          <!-- <div class="header_search_widget mb15-520">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username">
-              <div class="input-group-append">
-                <button class="btn" type="button"><span class="fa fa-search"></span></button>
-              </div>
-            </div>
-          </div> -->
+
         </div>
         <style>
         .top-right {
@@ -83,7 +78,9 @@
 
         
       </div>
+
     </div>
+    {{-- <a href="/" class="logo bismat-logo"><img src="{{asset('assets/images/bimat-logo.png')}}" alt="logo" ></a> --}}
   </header>
     @include('layouts.partials.navbar')
     <div class="dashboard__main pl0-md">

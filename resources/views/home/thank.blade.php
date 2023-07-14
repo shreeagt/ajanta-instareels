@@ -67,7 +67,7 @@
     align-items: center;
         /* background-color: rgb(0, 0, 0); */
         position: relative;
-    background-image: url('/assets/images/home/background.jpg');
+    background-image: url('/assets/images/home/background.gif');
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
@@ -112,7 +112,7 @@
 .logo{
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     z-index: 4;
 }
 
@@ -130,7 +130,8 @@ video#videoPlayer {
 }
 
 .logo.bimat-logo {
-    left: 10px;
+    right: 10px;
+    left:unset;
 }
 *{
     margin:0;
@@ -139,7 +140,7 @@ video#videoPlayer {
 
 @media screen and (max-width: 768px){
     .thank_banner {
-    background-image: url('/assets/images/home/background-mobile.png');
+    background-image: url('/assets/images/home/background-mobile.gif');
 }
 }
 </style>

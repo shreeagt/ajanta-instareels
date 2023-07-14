@@ -3,6 +3,22 @@
     background-color: #DDF2FA;
     color: #041E42;
   }
+
+  .bimat-logo{
+    position: absolute;
+    bottom:20px;
+    width:90%;
+
+  }
+
+  @media only screen and (max-width:768px){
+    .bimat-logo{
+
+    bottom:20vh;
+
+
+  }
+  }
 </style>
 <div class="dashboard_content_wrapper">
     <div class="dashboard dashboard_wrapper pr30 pr0-md">
@@ -33,10 +49,16 @@
                 <i class="flaticon-house mr15"></i>Doctors
               </a>
             </div>
+
+            
             @endrole
           
             
             </div>
+
+            <div class="bimat-logo">
+              <a href="#"><img src="{{asset('assets/images/bimat-logo.png')}}" class="" alt="logo"></a>
+          </div>
             </div>
         @endauth
 

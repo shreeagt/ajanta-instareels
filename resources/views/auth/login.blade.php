@@ -11,7 +11,7 @@ height: 100vh;
 
 body.text-center {
     position: relative;
-      background-image: url('/assets/images/home/background.jpg');
+      background-image: url('/assets/images/home/background.gif');
       background-repeat: no-repeat;
       background-position-y: center;
       background-position-x: center;
@@ -26,12 +26,13 @@ body.text-center {
     max-width: 150px;
     position: absolute;
     top:10px;
-    right:10px;
+    left:10px;
+    /* light:10px; */
 }
 
 .bimat-logo{
-    left:10px;
-    right:unset;
+    right:10px;
+    left:unset;
 }
 
 body.text-center::before{
@@ -58,7 +59,7 @@ body.text-center::before{
 @media screen and (max-width : 992px){
     body.text-center {
     position: relative;
-      background-image: url('/assets/images/home/background-mobile.png');
+      background-image: url('/assets/images/home/background-mobile.gif');
 }
 
 }
