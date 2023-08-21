@@ -23,14 +23,15 @@ class VideoController extends Controller
     public function index()
     { 
         if (Auth::user()->hasRole('admin')) {
-            $doctor_details = DB::select('SELECT doctors.firstname, videos.doctor_instruction, doctors.city, doctors.lastname, doctors.soid, videos.video_path FROM videos INNER JOIN doctors ON videos.drid = doctors.id WHERE videos.dr_video_status="Approved";'); 
+            $doctor_details = DB::select('SELECT doctors.firstname, videos.doctor_instruction, doctors.city, doctors.lastname, doctors.soid, videos.video_path, videos.dr_video_status FROM videos INNER JOIN doctors ON videos.drid = doctors.id WHERE videos.dr_video_status = "" OR videos.dr_video_status = "Download";');
+            // $doctor_details = DB::select('SELECT doctors.firstname, videos.doctor_instruction, doctors.city, doctors.lastname, doctors.soid, videos.video_path FROM videos INNER JOIN doctors ON videos.drid = doctors.id WHERE videos.dr_video_status="Approved";');
             $so_details = DB::select('SELECT firstname, lastname, id FROM users');
             return view('video.index', compact('doctor_details', 'so_details'));
         } elseif (Auth::user()->hasRole('so')) {
             $id = Auth::user()->id;
             $videos = DB::select('SELECT * FROM doctors INNER JOIN videos ON doctors.id = videos.drid WHERE videos.so_id=?', [$id]);
             return view('video.index', compact('videos'));
-        }
+        }   
     }
 
        
