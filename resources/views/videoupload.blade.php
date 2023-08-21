@@ -37,6 +37,20 @@
       overflow: hidden;
    }
 
+
+   .logo {
+    max-width: 150px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index:8;
+}
+
+.bimat-logo {
+    right: 10px;
+    left: unset;
+}
+
 .loader_cover {
   display: grid;
   place-content: center;
@@ -143,6 +157,15 @@ a.logo.aj-logo {
 }
    </style>
    <body> 
+      <div class="logo">
+         <a href="#"><img src="{{asset('assets/images/instareel.png')}}" class="" alt="logo"></a>
+     </div>
+
+     
+<div class="logo bimat-logo">
+   <a href="#"><img src="{{asset('assets/images/bimat-logo.png')}}" class="" alt="logo"></a>
+</div>
+
       <div class="loader_cover d-none" id="loader_cover">
          <a href="#" class="logo opti-logo">
             {{-- <img src="{{asset('assets/images/home/optidew_dry_eye.png')}}" > --}}

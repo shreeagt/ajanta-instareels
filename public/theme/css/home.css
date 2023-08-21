@@ -221,6 +221,11 @@
       font-size: 14px;
     }
 
+    .banner-wrapper{
+
+      background-image: url('/assets/images/home/background-mobile.gif');
+      }
+
     .drop-zone__thumb {
       width: 200px;
       height: 80px;
@@ -239,9 +244,9 @@
   }
   
   @media screen and (max-width:540px){
-     .banner-wrapper{
+     /* .banner-wrapper{
         height:auto;
-     }
+     } */
   
      .timeline-cover h1 {
       font-size: 18px;

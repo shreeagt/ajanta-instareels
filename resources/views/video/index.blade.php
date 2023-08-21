@@ -125,7 +125,7 @@
                                 <td>{{ $details->doctor_instruction }}</td>
                                 <td>
                                     @if ($details->dr_video_status == 'Download')
-                                        <a href="{{ asset($video_for_modal) }}" class="btn btn-success" download>Download</a>
+                                    <a  href="{{ asset($details->video_path) }}" class="btn btn-success" download>Download</a>
                                         <a class="btn  btn-primary copy-icon ml10" data-copy="{{ asset('videos/gallery/' . $details->video_path) }}">Copy</a>                                    @else
                                         <a href="#" class="btn btn-warning">Pending</a>
                                     @endif
@@ -139,7 +139,7 @@
                                 <div id="videoModal" class="modal open_video">
                                     <div class="modal-content">
                                         <span class="close close_video">&times;</span>
-                                        <video src="{{ asset($video_for_modal) }}" controls
+                                        <video src="{{ asset($details->video_path) }}" controls
                                             style="justify-content-center align-item-center"></video>
                                     </div>
                                 </div>
