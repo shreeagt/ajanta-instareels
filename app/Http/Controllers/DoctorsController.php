@@ -87,7 +87,7 @@ class DoctorsController extends Controller
     public function agtvideolist()
     {
         $agtvideolist = Videos::join('doctors', 'videos.drid', '=', 'doctors.id')
-            ->select('videos.id', 'videos.drid', 'doctors.firstname', 'doctors.speciality', 'doctors.lastname', 'doctors.email', 'doctors.contacno', 'doctors.city', 'videos.dr_video_status', 'videos.so_id',  'videos.video_path', 'doctors.photo', 'doctors.logo')
+            ->select('videos.id', 'videos.drid', 'doctors.firstname', 'doctors.speciality', 'doctors.lastname', 'doctors.email', 'doctors.contacno', 'doctors.city', 'videos.dr_video_status', 'videos.so_id','videos.starttime', 'videos.endtime', 'videos.video_path', 'doctors.photo', 'videos.video_path', 'doctors.photo', 'doctors.logo')
             ->where('videos.dr_video_status', '') // Filter by dr_video_status
             ->orderBy('videos.id', 'desc')
             ->get();
